@@ -11,6 +11,7 @@ function requireDependency(root: string, moduleName: string) {
 
 export default Task.extend({
   run: function (options: TestOptions) {
+    const app = options.app || 0;
     const projectRoot = this.project.root;
     return new Promise((resolve) => {
       const karma = requireDependency(projectRoot, 'karma');
@@ -27,7 +28,8 @@ export default Task.extend({
         codeCoverage: options.codeCoverage,
         lint: options.lint,
         sourcemap: options.sourcemap,
-        progress: options.progress
+        progress: options.progress,
+        app: this.project.ngConfig.config.apps[app]
       };
 
       // Assign additional karmaConfig options to the local ngapp config

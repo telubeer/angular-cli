@@ -18,7 +18,7 @@ export default Task.extend({
     const ui = this.ui;
 
     let webpackCompiler: any;
-
+    const app = serveTaskOptions.app || 0;
     let config = new NgCliWebpackConfig(
       this.project,
       serveTaskOptions.target,
@@ -32,7 +32,8 @@ export default Task.extend({
       serveTaskOptions.sourcemap,
       serveTaskOptions.vendorChunk,
       serveTaskOptions.verbose,
-      serveTaskOptions.progress
+      serveTaskOptions.progress,
+      app
     ).config;
 
     // This allows for live reload of page when changes are made to repo.

@@ -15,6 +15,7 @@ export interface TestOptions {
   build?: boolean;
   sourcemap?: boolean;
   progress?: boolean;
+  app?: number;
 }
 
 
@@ -31,7 +32,8 @@ const NgCliTestCommand = TestCommand.extend({
     { name: 'port', type: Number },
     { name: 'reporters', type: String },
     { name: 'build', type: Boolean, default: true },
-    { name: 'sourcemap', type: Boolean, default: true, aliases: ['sm'] }
+    { name: 'sourcemap', type: Boolean, default: true, aliases: ['sm'] },
+    { name: 'app', type: Number, default: 0}
   ],
 
   run: function(commandOptions: TestOptions) {

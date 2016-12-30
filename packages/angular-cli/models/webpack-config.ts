@@ -31,10 +31,11 @@ export class NgCliWebpackConfig {
     sourcemap = true,
     vendorChunk = false,
     verbose = false,
-    progress = true
+    progress = true,
+    app = 0,
   ) {
     const config: CliConfig = CliConfig.fromProject();
-    const appConfig = config.config.apps[0];
+    const appConfig = config.config.apps[app];
 
     appConfig.outDir = outputDir || appConfig.outDir;
 
